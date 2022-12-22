@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Bingo!</title>
+</head>
+<body>
+  <main>
+    <div id="bingo-container">
+      <div class="bingo-cardboard" id="player1">
+        <h3>Player 1</h3>
+        <button id="player1-button">Cambiar cartón</button>
+        <table class="cardboard-table">
+          <tr>
+            <th width="20%">B</th>
+            <th width="20%">I</th>
+            <th width="20%">N</th>
+            <th width="20%">G</th>
+            <th width="20%">O</th>
+          </tr>
+          <tr>
+            <td class="p1square" id="p1-square0"></td>
+            <td class="p1square" id="p1-square1"></td>
+            <td class="p1square" id="p1-square2"></td>
+            <td class="p1square" id="p1-square3"></td>
+            <td class="p1square" id="p1-square4"></td>
+          </tr>
+          <tr>
+            <td class="p1square" id="p1-square5"></td>
+            <td class="p1square" id="p1-square6"></td>
+            <td class="p1square" id="p1-square7"></td>
+            <td class="p1square" id="p1-square8"></td>
+            <td class="p1square" id="p1-square9"></td>
+          </tr>
+          <tr>
+            <td class="p1square" id="p1-square10"></td>
+            <td class="p1square" id="p1-square11"></td>
+            <td id="free">Free</td>
+            <td class="p1square" id="p1-square12"></td>
+            <td class="p1square" id="p1-square13"></td>
+          </tr>
+          <tr>
+            <td class="p1square" id="p1-square14"></td>
+            <td class="p1square" id="p1-square15"></td>
+            <td class="p1square" id="p1-square16"></td>
+            <td class="p1square" id="p1-square17"></td>
+            <td class="p1square" id="p1-square18"></td>
+          </tr>
+          <tr>
+            <td class="p1square" id="p1-square19"></td>
+            <td class="p1square" id="p1-square20"></td>
+            <td class="p1square" id="p1-square21"></td>
+            <td class="p1square" id="p1-square22"></td>
+            <td class="p1square" id="p1-square23"></td>
+          </tr>
+        </table>
+      </div>
+      <div id="tombola">
+        <div id="winner"></div>
+        <span id="dot">
+          <div id="random-number-tombola-box"></div>
+          <button id="tombola-start-button">Iniciar</button>
+        </span>
+      </div>
+      <div class="bingo-cardboard" id="player2">
+        <h3>Bot</h3>
+        <button id="bot-button">Cambiar cartón</button>
+        <table class="cardboard-table">
+          <tr>
+            <th width="20%">B</th>
+            <th width="20%">I</th>
+            <th width="20%">N</th>
+            <th width="20%">G</th>
+            <th width="20%">O</th>
+          </tr>
+          <tr>
+            <td class="botsquare" id="bot-square0"></td>
+            <td class="botsquare" id="bot-square1"></td>
+            <td class="botsquare" id="bot-square2"></td>
+            <td class="botsquare" id="bot-square3"></td>
+            <td class="botsquare" id="bot-square4"></td>
+          </tr>
+          <tr>
+            <td class="botsquare" id="bot-square5"></td>
+            <td class="botsquare" id="bot-square6"></td>
+            <td class="botsquare" id="bot-square7"></td>
+            <td class="botsquare" id="bot-square8"></td>
+            <td class="botsquare" id="bot-square9"></td>
+          </tr>
+          <tr>
+            <td class="botsquare" id="bot-square10"></td>
+            <td class="botsquare" id="bot-square11"></td>
+            <td id="free">Free</td>
+            <td class="botsquare" id="bot-square12"></td>
+            <td class="botsquare" id="bot-square13"></td>
+          </tr>
+          <tr>
+            <td class="botsquare" id="bot-square14"></td>
+            <td class="botsquare" id="bot-square15"></td>
+            <td class="botsquare" id="bot-square16"></td>
+            <td class="botsquare" id="bot-square17"></td>
+            <td class="botsquare" id="bot-square18"></td>
+          </tr>
+          <tr>
+            <td class="botsquare" id="bot-square19"></td>
+            <td class="botsquare" id="bot-square20"></td>
+            <td class="botsquare" id="bot-square21"></td>
+            <td class="botsquare" id="bot-square22"></td>
+            <td class="botsquare" id="bot-square23"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="bingo-results-container">
+      <h3>Resultados</h3>
+      <div id="results"></div>
+    </div>
+  </main>
+</body>
+<script type="module" src="getRandomCardboard.js"></script>
+<script type="module" src="./tombola.js"></script>
+</html>
