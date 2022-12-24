@@ -22,13 +22,14 @@ function getUniqueRandomTombola(maxNr) {
         }
     }
 }
+
 do {
   getUniqueRandomTombola(90)// Change the 90 to the numbers you want to play
 } while (switchMachine == true);
 
 const results = document.getElementById('results')
 const tombolaBtn = document.getElementById('tombola-start-button');
-export const tombolaBox = document.getElementById('random-number-tombola-box');
+const tombolaBox = document.getElementById('random-number-tombola-box');
 
 let numbersList = [];
 let counter = 0;
@@ -43,20 +44,25 @@ function printTombolaNumbers(miliseconds) {
     tombolaBox.innerHTML = uniqueNumbers[counter];
     counter++;
     numbersList.push(tombolaBox.innerHTML)
-    results.innerHTML = numbersList
+
+    const tableOfResults = numbersList.map(function(x) {
+      return `<td class="results-table-num">${x}</td>`
+    }).join('')// This join('') is to delete commas of the array
+    results.innerHTML = tableOfResults
 
     /* Painting the cardboard numbers */
 
     //Player 1
     playerSquares.forEach(square => {
       if(numbersList.includes(square.innerHTML)){
-        square.style.color = "lime"
+        square.style.backgroundColor = "lime"
       }
     })
+
     //Bot
     botSquares.forEach(square => {
       if(numbersList.includes(square.innerHTML)){
-        square.style.color = "lime"
+        square.style.backgroundColor = "lime"
       }
     })
 
@@ -68,7 +74,7 @@ function printTombolaNumbers(miliseconds) {
     function bingoWinner(squares){
       let myArr = [];
       for (let i = 0; squares.length > i; i++){
-        myArr.push(squares[i].style.color)
+        myArr.push(squares[i].style.backgroundColor)
 
         if (myArr.length === 24) {
           const isLime = (currentValue) => currentValue === "lime"
@@ -80,10 +86,14 @@ function printTombolaNumbers(miliseconds) {
               }
               else if (squares === botSquares) {
                 document.getElementById('dot').remove()
-                document.getElementById('winner').innerHTML = "Ganador: Bot"
+                document.getElementById('winner').innerHTML =
+                `Ganador: Bot 🏆 <br>
+                <button id="restart-game" onClick="window.location.reload()"> Reiniciar juego </button>`
               } else if (squares === playerSquares) {
                 document.getElementById('dot').remove()
-                document.getElementById('winner').innerHTML = "Ganador: Player 1"
+                document.getElementById('winner').innerHTML =
+                `Ganador: Player 1 🏆 <br>
+                <button id="restart-game" onClick="window.location.reload()"> Reiniciar juego </button>`
               }
             }, miliseconds + 10); // This time must be MORE than that of the global fn
             /* Stopping the tombola */
@@ -99,4 +109,4 @@ function printTombolaNumbers(miliseconds) {
   }, miliseconds)// Time of the global fn
 }
 
-tombolaBtn.onclick = () => printTombolaNumbers(10); // SET HERE THE MILISECONDS TO DROP EACH NUMBER
+tombolaBtn.onclick = () => printTombolaNumbers(1000); // SET HERE THE MILISECONDS TO DROP EACH NUMBER

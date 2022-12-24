@@ -1,5 +1,6 @@
 body {
   background-color: #0b142c;
+  font-family: sans-serif
 }
 
 main {
@@ -10,10 +11,45 @@ main {
 
 h3 {
   text-align: center;
+  font-size: xx-large;
 }
 
 table, th, td {
   border: 1px solid;
+}
+
+td, th {
+  border-radius: 100%;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+button{
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background: 0 0 rgba(50, 185, 50, 0.75);
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 10px 12px;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+}
+button:hover{
+  box-shadow: 4px 4px 0 #000;
+  transform: translate(-4px,-4px);
+}
+button:focus-visible{
+  outline-offset: 1px;
 }
 
 #bingo-container {
@@ -31,7 +67,7 @@ table, th, td {
 }
 
 .bingo-cardboard, #tombola {
-  width: 33vw; /*Esto rellena con rojo*/
+  width: 33vw;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
@@ -40,9 +76,13 @@ table, th, td {
   text-align: center;
 }
 
+.p1square, .botsquare{
+  width: 5px;
+}
 
 #free {
-  color: lime;
+  background-color: lime;
+  font-size: x-small;
 }
 
 .bingo-cardboard {
@@ -91,30 +131,30 @@ table, th, td {
   text-shadow: 0 0 10px black;
 }
 
-button{
-  outline: 0;
-  grid-gap: 8px;
-  align-items: center;
-  background: 0 0 rgba(50, 185, 50, 0.75);
-  border: 1px solid #000;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-flex;
-  flex-shrink: 0;
-  font-size: 16px;
-  gap: 8px;
+#bingo-results-container > table {
+  border: none;
+}
+
+#results {
+  display: flex;
   justify-content: center;
-  line-height: 1.5;
-  padding: 10px 12px;
-  transition: all .14s ease-out;
-  white-space: nowrap;
+  flex-wrap: wrap;
+  word-break: keep-all;
 }
-button:hover{
-  box-shadow: 4px 4px 0 #000;
-  transform: translate(-4px,-4px);
+
+.cardboard-table {
+  height: 160px;
+  border-radius: 10%;
+  border-width: 5px;
+  background-color: #ab49cc;
+  margin: 5px;
 }
-button:focus-visible{
-  outline-offset: 1px;
+
+.results-table-num{
+  margin: 5px;
+  background-color: rgba(76, 209, 76, 0.822);
+  text-align: center;
+  min-width: 40px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -124,5 +164,6 @@ button:focus-visible{
 
   .bingo-cardboard, #tombola{
     width: auto;
+    min-height: 20vh;
   }
 }
